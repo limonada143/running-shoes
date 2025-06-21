@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>운동화 목록</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <h1>👟 운동화 리스트</h1>
+  <div id="shoe-container" class="card-grid"></div>
+
+  <script src="js/data.js"></script>
+  <script>
+    const container = document.getElementById('shoe-container');
+    shoesData.forEach(shoe => {
+      const card = document.createElement('div');
+      card.className = 'shoe-card';
+      card.innerHTML = `
+        <img src="${shoe.img}" alt="${shoe.model}" />
+        <h3>${shoe.brand} - ${shoe.model}</h3>
+        <p>쿠셔닝: ${shoe.cushion}, 무게: ${shoe.weight}g, 드롭: ${shoe.drop}mm</p>
+        <p>용도: ${shoe.purpose}</p>
+        <strong>₩${shoe.price.toLocaleString()}</strong>
+      `;
+      container.appendChild(card);
+    });
+  </script>
+</body>
+</html>
